@@ -9,9 +9,9 @@
     (if (== $a $x)
         True
         (isMember $a $xs)
-        )
     )
+)
 
  ;;test cases
- ; ! (isMember Bereket (Cons Abebe (Cons Bereket (Cons Chala Nil))))
- ; ! (isMember Dagim (Cons A (Cons B (Cons C Nil))))
+! (isMember Bereket (Cons Abebe (Cons Bereket (Cons Chala Nil))))
+! (isMember Dagim (Cons Ayele (Cons Bereket (Cons Chala Nil))))

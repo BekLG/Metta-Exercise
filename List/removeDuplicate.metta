@@ -9,18 +9,18 @@
     (if (== $a $x)
         True
         (isMember $a $xs)
-        )
     )
+)
 
  ; Function to remove duplicates from a list
-(: remove-duplicates (-> List List))
-(= (remove-duplicates Nil) Nil)
-(= (remove-duplicates (Cons $x $xs))
+(: removeDuplicate (-> List List))
+(= (removeDuplicate Nil) Nil)
+(= (removeDuplicate (Cons $x $xs))
     (if (isMember $x $xs)
-        (remove-duplicates $xs)
-        (Cons $x (remove-duplicates $xs))
-        )
+        (removeDuplicate $xs)
+        (Cons $x (removeDuplicate $xs))
     )
+)
  ;;test cases
-! (remove-duplicates (Cons A (Cons B (Cons A Nil))))
-! (remove-duplicates (Cons A (Cons B (Cons B Nil))))
+! (removeDuplicate (Cons A (Cons B (Cons A Nil))))
+! (removeDuplicate (Cons A (Cons B (Cons B (Cons C Nil)))))

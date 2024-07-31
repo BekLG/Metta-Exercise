@@ -1,14 +1,14 @@
 (: List type)
 (: Nil List)
 (: Cons (-> $x List List))
-(: quickSort (-> List List))
+(: sort (-> List List))
 
-(= (quickSort Nil) Nil)
-(= (quickSort (Cons $x $xs))
+(= (sort Nil) Nil)
+(= (sort (Cons $x $xs))
     (let ($left $right) (partition $x $xs)
-        (append (quickSort $left) (Cons $x (quickSort $right)))
-        )
+        (append (sort $left) (Cons $x (sort $right)))
     )
+)
 
  ; A function to append two lists
 (: append (-> List List List))
@@ -22,13 +22,13 @@
     (let ($left $right) (partition $pivot $xs)
         (let* ( ($cond (<= $x $pivot)) )
             (if $cond
-                ((Cons $x $left) $right)
+                ( (Cons $x $left) $right)
                 ($left (Cons $x $right))
-                )
             )
-        )
     )
+)
+)
 
  ;;test cases
-!(quickSort (Cons 4 (Cons 2 (Cons 3 Nil))))
-!(quickSort (Cons 1 (Cons 6 (Cons 3 (Cons 2 (Cons 4 Nil))))))
+! (sort (Cons 4 (Cons 2 (Cons 3 Nil))))
+! (sort (Cons 1 (Cons 6 (Cons 3 (Cons 2 (Cons 4 Nil))))))

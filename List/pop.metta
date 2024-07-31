@@ -6,9 +6,10 @@
     (if (== $a 0)
         (pop (- $a 1) $xs)
         (Cons $x (pop (- $a 1) $xs))
-        )
     )
+)
 
  ;;test cases
 
-! (pop 2 (Cons A (Cons B (Cons C(Cons D(Cons E Nil))))))
+! (pop 2 (Cons A (Cons B (Cons C (Cons D (Cons E Nil))))))
+! (pop 0 (Cons A (Cons B (Cons C (Cons D (Cons E Nil))))))
